@@ -20,9 +20,16 @@ scope = "user-library-read"
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
 
 results = sp.current_user_saved_tracks()
+results2 = sp.current_user()
+
+print(f"{results2['id']}")
+print(f"{results2['display_name']}")
+
+print(f"{results}")
+
 for idx, item in enumerate(results['items']):
     track = item['track']
-    print(idx, track['artists'][0]['name'], " – ", track['name'])
+    print(idx, track['artists'][0]['name'], " - ", track['name'])
 
 
 
